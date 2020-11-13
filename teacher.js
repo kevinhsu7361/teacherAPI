@@ -17,6 +17,9 @@ function getData(){
     xhr.send(null);
     xhr.onload = function(){        
         data = JSON.parse(xhr.responseText);
+        console.log("XMLHttpRequest拿到資料如下")
+        console.log(data);
+        addDepartmentList();
     }
 }
 
@@ -26,12 +29,16 @@ function getData(){
 
 const departmentSelector = document.querySelector('.departmentList');
 function addDepartmentList(){
+    console.log("addDepartmentList裡面的data");
+    console.log(data);
+
     let allDepartment = [];
     let departmentStr='';
     departmentStr += '<option>請選擇科系</option>';
     
-    for(let i=0;i<data.length;i++){
-        const departmentName = data[i].department;
+    let array = data.teacher;
+    for(let i=0;i<array.length;i++){
+        const departmentName = array[i].department;
         if(allDepartment.indexOf(departmentName) == -1 && departmentName !== ''){
             allDepartment.push(departmentName);
             departmentStr += `<option value="${departmentName}">${departmentName}</option>`;
@@ -89,6 +96,6 @@ function renderList(e1,e2){
 */
 
 getData();
-addDepartmentList();
+
 departmentSelector.addEventListener('change', addTeacherList);
 teacherSelector.addEventListener('change', renderList);
