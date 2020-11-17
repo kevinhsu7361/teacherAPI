@@ -1,12 +1,4 @@
 /*
-筆記：
-(1) 先宣告 function，再使用之。
-(2) indexOf()：回傳給定元素於陣列中第一個被找到之索引，若不存在於陣列中則回傳 -1。
-*/
-
-
-
-/*
 取出資料
 */
 
@@ -24,7 +16,7 @@ function getData(){
 }
 
 /*
-科系
+科系選單
 */
 
 const departmentSelector = document.querySelector('.departmentList');
@@ -33,14 +25,13 @@ function addDepartmentList(){
     console.log(data);
 
     let allDepartment = [];
-    let departmentStr='';
-    departmentStr += '<option>請選擇科系</option>';
-    
+    let departmentStr='<option>請選擇科系</option>';
     let array = data.teacher;
+
     for(let i=0;i<array.length;i++){
         const departmentName = array[i].department;
         if(allDepartment.indexOf(departmentName) == -1 && departmentName !== ''){
-            allDepartment.push(departmentName);
+            allDepartment.push(departmentName); //重複的科系只出現一次
             departmentStr += `<option value="${departmentName}">${departmentName}</option>`;
         }
     }
@@ -48,7 +39,7 @@ function addDepartmentList(){
 }
 
 /*
-鄉鎮
+鄉鎮選單
 */
 
 const teacherSelector = document.querySelector('.teacherList');
@@ -57,11 +48,12 @@ function addTeacherList(e){
     let teacherStr = '<option>請選擇老師</option>';
     let allTeacher = [];
     let newTeacherList = '';
+    let array = data.teacher;
     
-    for (let i = 0; i < data.length; i++) {
-        let departmentMatch = data[i].department;
+    for (let i = 0; i < array.length; i++) {
+        let departmentMatch = array[i].department;
         if (departmentValue == departmentMatch) {
-            allTeacher.push(data[i].teacherName);
+            allTeacher.push(array[i].teacherName);
         }
     }
 
@@ -74,21 +66,11 @@ function addTeacherList(e){
 }
 
 /*
-條列
+傳送資料
 */
 
-function renderList(e1,e2){
-    let departmentValue = e1.target.value;
-    let teacherValue = e2.target.value;
-
-    for (let i = 0; i < data.length; i++) {
-        let departmentMatch = data[i].department;
-        let teacherMatch = data[i].teacherValue;
-        if (departmentValue == departmentMatch && teacherValue == teacherMatch) {
-            // 不知道如何撰寫
-        }
-    }
-    document.querySelector('.list').innerHTML = str;
+function send() {
+    window.open('preview.html','_blank');
 }
 
 /*
@@ -96,6 +78,5 @@ function renderList(e1,e2){
 */
 
 getData();
-
 departmentSelector.addEventListener('change', addTeacherList);
-teacherSelector.addEventListener('change', renderList);
+document.querySelector('#btn').addEventListener('click',send);
