@@ -1,5 +1,5 @@
 /*
-取出資料
+取得資料
 */
 
 let data;
@@ -74,9 +74,18 @@ function send() {
 }
 
 /*
+預覽結果
+*/
+
+function preview() {
+    document.getElementById("myframe").contentWindow.print();
+}
+
+/*
 執行程式
 */
 
 getData();
 departmentSelector.addEventListener('change', addTeacherList);
-document.querySelector('#btn').addEventListener('click',send);
+document.querySelector('#btn').addEventListener('click',send); // 先
+document.querySelector('#btn').addEventListener('click',preview); // 後

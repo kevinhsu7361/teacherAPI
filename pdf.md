@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<form id="form1" runat="server">
-    <title>Document</title>
-    <style>
-        form{
-            display: none;
-        }
-    </style>
-</head>
-<body>
+# HTML 轉 PDF
+
+## 困難點
+
+不能連按鈕也一起列印，所以點擊按鈕時，
+
+## 方法一
+此方法有個 `<iframe>`，因此不可行。
+
+```html
     <form id="form1" runat="server">
         <iframe src="preview.html" id="myframe" height="200"></iframe>
     </form>
@@ -22,5 +19,8 @@
             }
         }
     </script>
-</body>
-</html>
+```
+
+## pdf.js
+
+[官網](https://mozilla.github.io/pdf.js/getting_started/#download)範例下載下來後，發現是 pdf 轉 html。

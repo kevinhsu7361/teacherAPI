@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <select class="departmentList">
@@ -13,6 +18,10 @@
         <option>請選擇老師</option>
     </select>
     <button id="btn" type="button">預覽畫面</button>
+    
+    <form id="form1" runat="server">
+        <iframe src="preview.html" id="myframe" height="200"></iframe>
+    </form>
     
     <script src="teacher.js"></script>
 </body>
