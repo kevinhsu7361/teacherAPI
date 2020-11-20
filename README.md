@@ -1,7 +1,14 @@
 # 自我筆記
 
-## 前言
+## 釐清需求
 
+重點：業務單位對於報表檔格式是否有要求不能被修改，浮水印等等。
+簡單 HTML 轉 PDF 很單純，但若內容格式複雜又要精細排版就用 report 套件。
+至於篩選過濾是看業務邏輯的複雜度，跟資料來源的設計，與選擇哪種報表技術比較沒關係。
+
+## 相關技術
+
+採用前後端分離，前後端透過 API 進行溝通。
 我很久沒寫 JavaScript 了。
 
 ## API 串接之參考 code
@@ -37,3 +44,11 @@ a();
 ## 開啟新的 HTML
 
 [JS 跨網頁傳值](https://sites.google.com/a/storaid.org/storaid/programming/javascript/kua-wang-ye-chuan-zhi)。
+
+![](https://i.imgur.com/lkGbHAg.png)
+
+## 交授課木拉長 flex
+
+先假設沒有合併儲存格的情況。
+
+html table online editor。

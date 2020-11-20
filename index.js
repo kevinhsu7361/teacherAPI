@@ -70,7 +70,9 @@ function addTeacherList(e){
 */
 
 function send() {
-    window.open('preview.html','_blank');
+    const dept = departmentSelector.value;
+    const teacher = teacherSelector.value;
+    document.querySelector('#myframe').src=`preview.html?dept=${dept}&teacher=${teacher}`
 }
 
 /*
@@ -82,10 +84,9 @@ function preview() {
 }
 
 /*
-執行程式
+執行函式
 */
 
 getData();
 departmentSelector.addEventListener('change', addTeacherList);
-document.querySelector('#btn').addEventListener('click',send); // 先
-document.querySelector('#btn').addEventListener('click',preview); // 後
+document.querySelector('#btn').addEventListener('click',send);
